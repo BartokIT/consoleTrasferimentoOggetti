@@ -12,26 +12,39 @@
 	<link rel="stylesheet" href="style/demo_table_jui.css" type="text/css" />
 	<link rel="stylesheet" href="style/main.css" type="text/css" />
 	<link rel="stylesheet" href="style/maintable.css" type="text/css" />
-	<meta http-equiv="Content-Type"
-		content="application/xhtml+xml; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript"
-		src="js/jquery.dataTables.sorting.plugin.js"></script>
+	<script type="text/javascript" src="js/jquery.dataTables.sorting.plugin.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.12.custom.min.js"></script>
-	<script type="text/javascript" src="js/ViewTransferRequests.js"></script>
+	<script type="text/javascript" src="js/viewDetailRequest.js"></script>
 	<script type="text/javascript" src="js/ColVis.min.js"></script>
 </head>
 <body>
 
 <div id="head">
-Progetto: <jsp:getProperty name="requestObject" property="projectName" /> <br/>
-Sottoprogetto: <jsp:getProperty name="requestObject" property="subProjectName" /> <br/>
-Data: <jsp:getProperty name="requestObject" property="dateString" /> <br/>
-Ora: <jsp:getProperty name="requestObject" property="timeString" /> <br/> <hr/>
-CVS <br/>
-Tag: <jsp:getProperty name="requestObject" property="tagCVS" /> <br/>
-Modulo: <jsp:getProperty name="requestObject" property="moduleCVS" />
+<strong>Richiesta di trasferimento</strong>
+del: <jsp:getProperty name="requestObject" property="dateString" /> <br/>
+ORE: <jsp:getProperty name="requestObject" property="timeString" /> <br/> 
+</div>
+
+
+
+<div id="tabs">
+	<ul>
+		<li><a href="#tabs-general">Generali</a></li>
+		<li><a href="#tabs-2">Datasource</a></li>
+	</ul>
+	<div id="tabs-general">
+		Progetto: <jsp:getProperty name="requestObject" property="projectName" /> <br/>
+		Sottoprogetto: <jsp:getProperty name="requestObject" property="subProjectName" /> <br/> <hr/>
+		CVS <br/>
+		Tag: <jsp:getProperty name="requestObject" property="tagCVS" /> <br/>
+		Modulo: <jsp:getProperty name="requestObject" property="moduleCVS" />
+	</div>
+	<div id="tabs-2">
+		<p>Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc. Duis scelerisque molestie turpis. Sed fringilla, massa eget luctus malesuada, metus eros molestie lectus, ut tempus eros massa ut dolor. Aenean aliquet fringilla sem. Suspendisse sed ligula in ligula suscipit aliquam. Praesent in eros vestibulum mi adipiscing adipiscing. Morbi facilisis. Curabitur ornare consequat nunc. Aenean vel metus. Ut posuere viverra nulla. Aliquam erat volutpat. Pellentesque convallis. Maecenas feugiat, tellus pellentesque pretium posuere, felis lorem euismod felis, eu ornare leo nisi vel felis. Mauris consectetur tortor et purus.</p>
+	</div>
 </div>
 </body>
 </html>
