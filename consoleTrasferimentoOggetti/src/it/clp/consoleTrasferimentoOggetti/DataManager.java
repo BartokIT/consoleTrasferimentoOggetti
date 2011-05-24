@@ -9,6 +9,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -332,7 +338,6 @@ public class DataManager {
 		DataSource ds = null;
 		PreparedStatement statement= null;
 		ResultSet result = null;
-		String sProgetto = null;
 		TransferRequest req = null;
 		ds = DataManager.getDataSource();
 		
@@ -371,4 +376,41 @@ public class DataManager {
 		
 		return req;
 	}	
+
+	public static void sendMail()
+	{
+	    System.out.println("Entering MailServlet");
+	    
+	 // extract parameters from HttpServletRequest object
+	     String email = "clpapa@inpdap.gov.it";
+	     String messageBody = "Prova prova";
+	     String subject = "Email di prova";
+	     String destinationAddress = "GestioneWAS@inpdap.gov.it"; 
+	     try 
+	     {
+	         // look up MailSession
+	         Context context = new InitialContext();
+	         Session mailSession =  (Session)context.lookup("mail/trasfObj");
+	         Message msg = new MimeMessage(mailSession);
+	         msg.setFrom(new InternetAddress(email));
+	         msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinationAddress));
+	         // Set the subject and body text
+	         msg.setSubject(subject);
+	         msg.setText(messageBody);
+	         // send message
+	         Transport.send(msg);
+	         System.out.println("Message Sent");
+
+	     }
+	 catch (NamingException e) 
+	     {
+	         e.printStackTrace();
+
+	     }
+	 catch (MessagingException e)
+	     {
+	         e.printStackTrace();
+	     }
+	     System.out.println("Exiting Mail procedure");
+	}
 }

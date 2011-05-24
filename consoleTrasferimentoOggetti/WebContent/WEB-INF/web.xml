@@ -42,6 +42,14 @@
 		<servlet-name>InfoApplication</servlet-name>
 		<servlet-class>it.clp.consoleTrasferimentoOggetti.InfoApplication</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>
+		MailDispatcher</display-name>
+		<servlet-name>MailDispatcher</servlet-name>
+		<servlet-class>it.clp.consoleTrasferimentoOggetti.MailDispatcher</servlet-class>
+	</servlet>
 		
 	<servlet-mapping>
 		<servlet-name>GetRequests</servlet-name>
@@ -63,6 +71,11 @@
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>GetRequestsAjax</servlet-name><url-pattern>GetTransferRequest.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MailDispatcher</servlet-name>
+		<url-pattern>
+		/MailDispatcher</url-pattern>
 	</servlet-mapping>		
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
