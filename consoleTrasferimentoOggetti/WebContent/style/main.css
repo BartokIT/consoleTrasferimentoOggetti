@@ -1,0 +1,91 @@
+body {
+	font: 80%/1.45em "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #333;
+	background-color: #fff;
+}
+
+.center
+{
+	text-align: center;
+}
+
+.center a h1
+{
+	text-align: center;
+}
+
+h1.open_mail
+{
+        width: 100%; height: 16px;
+        margin:0;padding:0;
+        background: url("images/mail_icon_16x16.png") no-repeat top center;
+        text-indent: -9999px;
+        text-align:center;
+		
+}
+
+h1.deploy_request
+{
+        /*width: 16px; height: 16px;*/
+        margin:0;padding:0;
+        background: url("images/gear_icon_16x16.png") no-repeat top;
+        text-indent: -9999px;
+		
+}
+
+h1.view_trasf_form
+{
+        /*width: 16px; height: 16px;*/
+        margin:0;padding:0;
+        background: url("images/excel_icon_16x16.png") no-repeat top;
+        text-indent: -9999px;
+		
+}
+
+h1.checked
+{
+        /*width: 16px; height: 16px;*/
+        margin:0;padding:0;
+        background: url("images/checked_green_icon.gif") no-repeat top;
+        text-indent: -9999px;
+}
+
+h1.un-checked
+{
+        margin:0;padding:0;
+        text-indent: -9999px;
+}
+
+a.view_application, a.view_application:visited
+{
+	text-decoration:none;
+	border-bottom: 1px dashed #000;
+	color: #333;
+	font-size
+}
+
+a.view_application:hover
+{
+	text-decoration:none;
+	border-bottom: 1px dashed #000;
+	color: #111;
+	font-weight: bold;
+	font-size: 90%; 
+}
+
+/* ******* Pagina di informazione sulle applicazioni ***** */
+.info_appl_head_proj
+{
+	font-size: 15px;
+	font-weight: bold;
+	color:  #fff;
+}
+.info_appl_head
+{
+ margin: auto;
+ margin-top: 10px;
+ cursor: default !important; 
+ width: 99% !important;
+ }

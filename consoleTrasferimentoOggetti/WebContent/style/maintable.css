@@ -1,0 +1,32 @@
+#container_main_trasf_table
+{
+	width: 950px;
+	padding:0;
+	margin:auto;	
+}
+
+#main_trasf_table {
+	margin: 0;
+	padding: 0;
+	color: #333;
+	background-color: #fff;
+	width: 100%;
+}
+
+
+#container_main_request_report
+{
+	width: 750px;
+	padding:0;
+	margin:auto;
+	margin-top: 15px;
+}
+
+#main_request_report {
+	margin: 0;
+	padding: 0;
+	color: #333;
+	background-color: #fff;
+	width: 100%;
+	font-size:.99em;
+}

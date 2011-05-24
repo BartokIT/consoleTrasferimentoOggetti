@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="consoleTrasferimentoOggetti">
+        <wb-resource deploy-path="/" source-path="/WebContent"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
+        <dependent-module archiveName="commons-lang-2.6.jar" deploy-path="/" handle="module:/classpath/lib/WebContent/commons-lang-2.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="consoleTrasferimentoOggetti"/>
+        <property name="java-output-path" value="WebContent/WEB-INF/classes"/>
+    </wb-module>
+</project-modules>
