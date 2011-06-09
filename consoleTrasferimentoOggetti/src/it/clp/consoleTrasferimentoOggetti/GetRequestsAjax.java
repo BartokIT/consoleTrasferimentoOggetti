@@ -90,7 +90,8 @@ public class GetRequestsAjax extends HttpServlet {
 					
 						out.print("\"" + UtilityFunction.escapeStringJSON("<a class=\"view_application\" href=\"InfoApplication?applID=" + result.getString("applID") +"\">" + result.getString("progetto") + "<br/>" ));
 						if (result.getString("sottoprogetto") != null)
-							out.print( UtilityFunction.escapeStringJSON(result.getString("sottoprogetto") ) );
+							out.print( UtilityFunction.escapeStringJSON(result.getString("sottoprogetto")));
+						
 						out.print(UtilityFunction.escapeStringJSON("</a>" )+ "\", ");
 						//out.println("\""+ StringEscapeUtils.escapeJavaScript("<a class=\"modal_ajax\" href=\"DownloadEmailContent?mailID=" + result.getString("mailID") + "\"><h1  class=\"open_mail\">Vedi E-mail</h1></a>") + "\",");
 						out.println("\"" + UtilityFunction.escapeStringJSON("<a href=\"DownloadEmailContent?mailID=" + result.getString("mailID") + "\"><h1  class=\"open_mail\">Vedi E-mail</h1></a>") + "\",");
@@ -112,7 +113,7 @@ public class GetRequestsAjax extends HttpServlet {
 							out.print(  UtilityFunction.escapeStringJSON(result.getString("sottoprogetto")) ) ;
 						
 						out.print(UtilityFunction.escapeStringJSON("</a>" )+ "\", ");
-						out.println("\""+ UtilityFunction.escapeStringJSON("<a class=\"modal_ajax\" href=\"DownloadEmailContent?mailID=" + result.getString("mailID") + "\"><h1  class=\"open_mail\">Vedi E-mail</h1></a>") + "\",");
+						out.println("\"" + UtilityFunction.escapeStringJSON("<a href=\"DownloadEmailContent?mailID=" + result.getString("mailID") + "\"><h1  class=\"open_mail\">Vedi E-mail</h1></a>") + "\",");
 						out.println("\"" + UtilityFunction.escapeStringJSON("<a href=\"DownloadTransferObject?fileID=" + result.getString("attachID") + "\"><h1  class=\"view_trasf_form\">Modulo trasferimento</h1></a>") + "\",");
 						out.println("\"" + UtilityFunction.escapeStringJSON("<a href=\"viewDetailRequest.jsp?reqID=" +  result.getString("reqID") + "\" ><h1  class=\"deploy_request\">Effettua deploy</h1></a>") + "\"\n]");
 	

@@ -14,6 +14,17 @@ public class TransferRequest {
 	private SimpleDateFormat  formatterTime = null;
 	private String sTagCVS = null;
 	private String sModuloCVS = null;
+	private Ambient oAmbient = null;
+	private String mailID = null;
+	private String attachID = null;
+	
+	public TransferRequest()
+	{ /*Dummy constructor*/	}
+	
+	public TransferRequest(String requestID)
+	{
+		this.setCurrentRequest(requestID);
+	}	
 	
 	/**
 	 * Utilizzato per impostare la richiesta corrente
@@ -25,11 +36,21 @@ public class TransferRequest {
 		this.formatterTime = new SimpleDateFormat("HH:mm:ss" );
 		TransferRequest req;
 		req = DataManager.getRequestDetail(sReqID);
+		this.idRequest = Integer.parseInt(sReqID);
 		this.sProgetto = req.getProjectName();
 		this.sSottoprogetto = req.getSubProjectName();
 		this.timeRequest = req.getTimestamp();
 		this.sModuloCVS = req.getModuleCVS();
 		this.sTagCVS = req.getTagCVS();
+		this.sPrimaSuccessiva = req.getPrimaSuccessiva();
+		this.oAmbient = req.getAmbient();
+		this.mailID = req.getMailID();
+		this.attachID = req.getAttachID();
+	}
+	
+	public int getRequestID()
+	{
+		return this.idRequest; 
 	}
 	
 	/**
@@ -64,9 +85,9 @@ public class TransferRequest {
 			return "";
 	}
 	
-	public void setPrimaSuccessiva(char cPrimaSuccessiva)
+	public void setPrimaSuccessiva(String sPrimaSuccessiva)
 	{
-		this.sPrimaSuccessiva = String.valueOf(cPrimaSuccessiva);
+		this.sPrimaSuccessiva = sPrimaSuccessiva;
 	}
 	
 	public String getPrimaSuccessiva()
@@ -81,17 +102,26 @@ public class TransferRequest {
 	
 	public Timestamp getTimestamp()
 	{
-		return this.timeRequest;
+		if (this.timeRequest != null)
+			return this.timeRequest;
+		else 
+			return null;
 	}
 	
 	public String getDateString()
 	{
-		return this.formatterData.format(this.timeRequest);
+		if (this.timeRequest != null)
+			return this.formatterData.format(this.timeRequest);
+		else
+			return "";
 	}
 	
 	public String getTimeString()
 	{
-		return this.formatterTime.format(this.timeRequest);
+		if (this.timeRequest != null)
+			return this.formatterTime.format(this.timeRequest);
+		else
+			return "";
 	}	
 	
 	public String getTagCVS()
@@ -121,4 +151,49 @@ public class TransferRequest {
 		if (sModule != null)
 			this.sModuloCVS = sModule;
 	}
+	
+	public void setAmbient(Ambient oAmbient)
+	{
+		if (oAmbient != null)
+			this.oAmbient = oAmbient;
+	}
+	
+	public Ambient getAmbient()
+	{
+		if (this.oAmbient != null)
+			return this.oAmbient;
+		else
+			return null;	
+	}
+	
+	public void setMailID(String mailID)
+	{
+		if (mailID != null)
+			this.mailID  = mailID;
+	}
+	
+	public String getMailID()
+	{
+		if (this.mailID != null)
+			return this.mailID;
+		else	
+			return "";
+	}	
+	
+	public void setAttachID(String attachID)
+	{
+		if (attachID != null)
+		{
+			this.attachID = attachID;
+		}
+	}
+	
+	public String getAttachID()
+	{
+		if (this.attachID != null)
+			return this.attachID;
+		else
+			return "";
+	}
+	
 }

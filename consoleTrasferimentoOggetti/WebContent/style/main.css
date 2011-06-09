@@ -89,3 +89,62 @@ a.view_application:hover
  cursor: default !important; 
  width: 99% !important;
  }
+
+ /* ******* Pagina con il dettaglio sulla richiesta trasferimento ******** */
+ 
+ .form_update
+ {
+ 	margin: 10px;
+ 	text-align: center;
+ }
+ 
+ .form_update input.submit
+ {
+ 	width: 100%;
+ }
+ 
+
+#form_container, #update_operation
+ {
+	margin-top: 20px; 
+ }
+ 
+ #update_operation
+ {
+ 	/*height: 150px;*/
+ }
+ 
+ a.deploy_link:link, a.deploy_link:visited, a.deploy_link:hover
+ {
+	width:900px;
+	display: inline-block;
+ 	text-decoration:none;
+	border-bottom:1px dotted #999;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;	
+}
+
+#shell_container 
+{
+	width: 100%;
+	height: 300px;
+	overflow: auto;
+}
+ 
+.mail_link:link, .mail_link:active, .module_link:link, .module_link:active
+{
+	text-decoration: none;
+	font-size: .9em;
+}
+ /*
+#scrollbar1 { height:100%; width: 100%; clear: both; margin:0 0 10px; }
+#scrollbar1 .scrollbar { width: 100%;}
+#scrollbar1 .viewport {width: 95%; height: 200px; overflow: hidden; position: relative; }
+#scrollbar1 .overview {   list-style: none; position: absolute; left: 0; top: 0; padding: 15px;}
+#scrollbar1 .thumb .end,
+#scrollbar1 .thumb { background-color: #003D5D; }
+#scrollbar1 .scrollbar { position: relative; float: right; width: 15px; }
+#scrollbar1 .track { background-color: #D8EEFD; height: 100%; width:13px; position: relative; padding: 0 1px; }
+#scrollbar1 .thumb { height: 20px; width: 13px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+#scrollbar1 .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+#scrollbar1 .disable{ display: none; }*/

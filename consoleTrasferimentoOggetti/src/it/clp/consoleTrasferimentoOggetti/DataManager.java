@@ -1,6 +1,7 @@
 package it.clp.consoleTrasferimentoOggetti;
 
 
+import it.clp.consoleTrasferimentoOggetti.data.Ambient;
 import it.clp.consoleTrasferimentoOggetti.data.TransferRequest;
 
 import java.sql.Blob;
@@ -345,7 +346,7 @@ public class DataManager {
 			con = ds.getConnection();
 			
 			String sSQLString = 
-			" SELECT  appl.applID, mail.mailID, req.primaSuccessiva, req.reqDateTime, att.attachID, appl.progetto, appl.sottoProgetto,  req.reqID, req.tagCVS, req.moduloCVS, amb.ambientName, att.attachName" +
+			" SELECT  appl.applID, mail.mailID, req.primaSuccessiva, req.reqDateTime, att.attachID, appl.progetto, appl.sottoProgetto,  req.reqID, req.tagCVS, req.moduloCVS, amb.ambientName, att.attachName, amb.ambientID " +
 			" FROM applications appl, attachments att, containsAttachments cont, mailItems mail, sendedWith snd, ambients amb, concernReq conc, transferRequests req " +
 			" WHERE (amb.ambientID = conc.ext_ambientID) AND" +
 			" (conc.ext_reqID = req.reqID) AND" +
@@ -367,10 +368,14 @@ public class DataManager {
 				req.setDateTime(result.getTimestamp("reqDateTime"));
 				req.setModuleVCS(result.getString("moduloCVS"));
 				req.setTagCVS(result.getString("tagCVS"));
+				req.setPrimaSuccessiva(result.getString("primaSuccessiva"));
+				req.setMailID(result.getString("mailID"));
+				req.setAttachID(result.getString("attachID"));
+				Ambient oAmb =DataManager.getAmbientDetail(result.getString("ambientID"));
+				req.setAmbient(oAmb);
 			}
 			
 		} catch (SQLException e) {
-			// TODO Blocco catch generato automaticamente
 			e.printStackTrace();
 		}
 		
@@ -412,5 +417,46 @@ public class DataManager {
 	         e.printStackTrace();
 	     }
 	     System.out.println("Exiting Mail procedure");
+	}
+	
+	/**
+	 * Restituisce una istanza di Ambient popolata 
+	 * @param sID
+	 * @return
+	 */
+	public static Ambient getAmbientDetail(String sID)
+	{
+		Connection con = null;
+		DataSource ds = null;
+		PreparedStatement statement= null;
+		ResultSet result = null;
+		Ambient amb = null;
+		ds = DataManager.getDataSource();
+		
+		try {
+			con = ds.getConnection();
+			
+			String sSQLString = 
+			" SELECT  amb.ambientID, amb.ambientName, amb.ip, amb.port" +
+			" FROM ambients amb " +
+			" WHERE (amb.ambientID = '" + sID + "')";
+			
+			statement = con.prepareStatement(sSQLString);
+			result = statement.executeQuery();
+			
+			if (result.next())
+			{
+				amb = new Ambient();
+				amb.setID(result.getString("ambientID"));
+				amb.setName(result.getString("ambientName"));				
+				amb.setIP(result.getString("ip"));
+				amb.setPort(result.getString("port"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return amb;		
 	}
 }

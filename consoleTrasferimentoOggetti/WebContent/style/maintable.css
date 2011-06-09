@@ -1,3 +1,4 @@
+/* ***** Sezione per la visualizzazione delle richiesta ***** */
 #container_main_trasf_table
 {
 	width: 950px;
@@ -29,4 +30,31 @@
 	background-color: #fff;
 	width: 100%;
 	font-size:.99em;
+}
+
+/* ***** Sezione per il dettaglio della richiesta di trasferimento *****/
+#container_mail_detail_requests
+{
+	width: 950px;
+	padding:0;
+	margin:auto;	
+}
+
+#container_mail_detail_requests #head
+{
+	padding:0;
+	margin-bottom: 10px;	
+}
+
+#container_mail_detail_requests #head h2
+{
+	padding-left: 10px;
+	margin:0;
+}
+
+#container_mail_detail_requests #head em
+{
+	padding-left: 10px;
+	font-size: 10px;
+	margin:0;
 }
