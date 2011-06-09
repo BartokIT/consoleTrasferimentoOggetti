@@ -11,5 +11,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Programmi/IBM/SDP/runtimes/base_v7/dev/JavaEE/j2ee.jar"/>
+	<classpathentry kind="lib" path="lib/ganymed-ssh2-build210.jar"/>
 	<classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
