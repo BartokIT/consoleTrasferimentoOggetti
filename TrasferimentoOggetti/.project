@@ -4,6 +4,7 @@
 	<comment></comment>
 	<projects>
 		<project>consoleTrasferimentoOggetti</project>
+		<project>InpdapInterfacceIDWAS</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<?com.ibm.xtools.emf.core.signature <signature id="com.ibm.xtools.mmi.ui.signatures.diagram" version="7.0.0"><feature description="" name="Piattaforma Rational Modeling (com.ibm.xtools.rmp)" url="" version="7.0.0"/></signature>?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.1/notation" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmlns:umlnotation="http://www.ibm.com/xtools/1.5.2/Umlnotation" xmi:id="_I64-wKbdEeCTeZT4STUJcw" type="Class" name="classdiagram.dnx">
+  <eAnnotations xmi:id="_I64-wqbdEeCTeZT4STUJcw" source="com.ibm.xtools.common.ui.reduction.editingCapabilities">
+    <details xmi:id="_I64-w6bdEeCTeZT4STUJcw" key="com.ibm.xtools.activities.EJB3VisualizerActivity" value="1"/>
+    <details xmi:id="_I64-xKbdEeCTeZT4STUJcw" key="com.ibm.xtools.viz.java.webservice.capability" value="1"/>
+    <details xmi:id="_I64-xabdEeCTeZT4STUJcw" key="com.ibm.xtools.activities.EJB3JPAVisualizerActivity" value="1"/>
+    <details xmi:id="_I64-xqbdEeCTeZT4STUJcw" key="com.ibm.xtools.viz.webservice.capabilty" value="1"/>
+    <details xmi:id="_I64-x6bdEeCTeZT4STUJcw" key="com.ibm.xtools.activities.javaVisualizerActivity" value="1"/>
+    <details xmi:id="_I64-yKbdEeCTeZT4STUJcw" key="com.ibm.xtools.activities.EJBVisualizerActivity" value="1"/>
+  </eAnnotations>
+  <children xmi:id="_KW-iQKbdEeCTeZT4STUJcw">
+    <children xmi:id="_KYdwAKbdEeCTeZT4STUJcw" type="ImageCompartment">
+      <layoutConstraint xmi:type="notation:Size" xmi:id="_KYdwAabdEeCTeZT4STUJcw" width="1320" height="1320"/>
+    </children>
+    <children xmi:id="_KYdwAqbdEeCTeZT4STUJcw" type="Stereotype"/>
+    <children xmi:id="_KYdwA6bdEeCTeZT4STUJcw" type="Name"/>
+    <children xmi:id="_KYdwBKbdEeCTeZT4STUJcw" type="Parent"/>
+    <children xmi:id="_KYdwBabdEeCTeZT4STUJcw" type="PackageContents">
+      <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_KYdwBqbdEeCTeZT4STUJcw" canonical="false" collapsed="true"/>
+    </children>
+    <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_KW-iQabdEeCTeZT4STUJcw" showStereotype="Label"/>
+    <element xmi:type="uml:Model" href="mmi:///#project%5Eid=consoleTrasferimentoOggetti$uml.Model"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_KW-iQqbdEeCTeZT4STUJcw" x="661" y="661"/>
+  </children>
+  <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_I64-wabdEeCTeZT4STUJcw"/>
+  <element xsi:nil="true"/>
+</notation:Diagram>

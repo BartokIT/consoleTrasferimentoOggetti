@@ -7,5 +7,11 @@ TrasferimentoOggetti</display-name>
  		<web-uri>consoleTrasferimentoOggetti.war</web-uri>
  		<context-root>consoleTrasferimentoOggetti</context-root>
  	</web>
+ </module>
+ <module>
+ 	<web>
+ 		<web-uri>InpdapInterfacceIDWAS.war</web-uri>
+ 		<context-root>InpdapInterfacceIDWAS</context-root>
+ 	</web>
  </module> 
  </application> 
