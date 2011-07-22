@@ -22,10 +22,16 @@ $(document).ready(function() {
 	});
 	
 	//Prelevo il request id
+	
 	var requestID  = $("#requestID").val();
 
+	$("#deploy_done").button().click(function(event){
+		event.preventDefault();
+		var deploydoneHref = $(this).attr('href');
+		$.ajax(deploydoneHref);
+	});
 	
-	
+	$("#deploy_done").css("font-size","10px");
 	//Faccio il binding della pressione sul pulsante per fare l'aggiornamento
 	$("#run_update").click( function(event) {
 		event.preventDefault();

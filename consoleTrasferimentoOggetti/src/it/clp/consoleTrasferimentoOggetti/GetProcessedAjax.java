@@ -49,13 +49,13 @@ public class GetProcessedAjax extends HttpServlet {
 		
 		//response.setContentType("text/html");
 
-		iTotalRows =  DataManager.getNumberRequest();
-		iNumFilteredRecords = DataManager.getNumberRowFiltered(request.getParameter("sSearch"));
+		iTotalRows =  DataManager.getNumberRequest("Y");
+		iNumFilteredRecords = DataManager.getNumberRowFiltered(request.getParameter("sSearch"), "Y");
 		
 		try
 		{
 			
-			result = DataManager.getRequestsRow(request.getParameter("sSearch"), request.getParameter("iSortCol_0"), request.getParameter("sSortDir_0"),Integer.parseInt(request.getParameter("iDisplayStart")), Integer.parseInt(request.getParameter("iDisplayLength")));
+			result = DataManager.getRequestsRow(request.getParameter("sSearch"), request.getParameter("iSortCol_0"), request.getParameter("sSortDir_0"),Integer.parseInt(request.getParameter("iDisplayStart")), Integer.parseInt(request.getParameter("iDisplayLength")),"Y");
 			
 			if ( result != null)
 			{

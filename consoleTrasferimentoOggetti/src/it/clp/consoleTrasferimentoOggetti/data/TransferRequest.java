@@ -47,6 +47,7 @@ public class TransferRequest {
 		this.sTagCVS = req.getTagCVS();
 		this.sPrimaSuccessiva = req.getPrimaSuccessiva();
 		this.oAmbient = req.getAmbient();
+		this.oApplication =  req.getApplication();
 		this.mailID = req.getMailID();
 		this.attachID = req.getAttachID();
 		this.deployed = req.getDeployed();
@@ -61,6 +62,7 @@ public class TransferRequest {
 	/**
 	 * Permette di impostare il nome del progetto
 	 * @param sNomeProgetto
+	 * @deprecated
 	 */
 	public void setProjectName(String sNomeProgetto)
 	{
@@ -68,6 +70,11 @@ public class TransferRequest {
 			this.sProgetto = sNomeProgetto;
 			
 	}
+	/**
+	 * 
+	 * @return
+	 * @deprecated
+	 */
 	public String getProjectName()
 	{
 		if (this.sProgetto != null)
@@ -76,12 +83,20 @@ public class TransferRequest {
 			return "";
 	}
 	
+	/**
+	 * 
+	 * @param sNomeSottoProgetto
+	 * @deprecated
+	 */
 	public void setSubProjectName(String sNomeSottoProgetto)
 	{
 	 	if (sNomeSottoProgetto != null)
 	 		this.sSottoprogetto = sNomeSottoProgetto; 
 	}
-	
+	/**
+	 * 
+	 *@deprecated
+	 */
 	public String getSubProjectName()
 	{
 		if (this.sSottoprogetto != null)

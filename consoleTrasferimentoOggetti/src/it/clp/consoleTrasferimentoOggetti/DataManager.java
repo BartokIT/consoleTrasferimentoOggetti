@@ -28,6 +28,41 @@ public class DataManager {
 	private static DataSource oMySqlDataSource=null;
 
 	/**
+	 * Permette di impostare se la richiesta è stata evasa o meno 
+	 * @param iRequestID
+	 * @param bDeployDone
+	 */
+	public static void setDeployRequest(int iRequestID, boolean bDeployDone)
+	{
+		Connection con = null;
+		DataSource ds = null;
+		PreparedStatement statement= null;
+		ResultSet result = null;
+		String sDeployDone= null;
+		
+		ds = DataManager.getDataSource();
+		if (bDeployDone)
+			sDeployDone = "Y";
+		else
+			sDeployDone = "N";
+		
+		try {
+			con = ds.getConnection();
+			
+			String sSQLString = "UPDATE transferRequests SET deployed='"+ sDeployDone + "' WHERE ( reqID="+ iRequestID + " )";
+			statement = con.prepareStatement(sSQLString);
+			result = statement.executeQuery();
+			statement.getUpdateCount();
+		} catch (SQLException e) {
+			// TODO Blocco catch generato automaticamente
+			e.printStackTrace();
+			
+		}
+		
+		
+	}
+	
+	/**
 	 *  Si occupa di prelevare il data source
 	 */
 	public static DataSource getDataSource()
@@ -55,11 +90,17 @@ public class DataManager {
 		return DataManager.oMySqlDataSource;
 	}
 	
+	
+	public static int getNumberRequest()
+	{
+		return getNumberRequest("N");
+	}
+	
 	/**
 	 * Funzione che si occupa di prelevare il numero totale di richieste di trasferimento
 	 * @return
 	 */
-	public static int getNumberRequest()
+	public static int getNumberRequest(String sDeployed)
 	{
 		Connection con = null;
 		DataSource ds = null;
@@ -70,7 +111,7 @@ public class DataManager {
 		try {
 			con = ds.getConnection();
 			
-			String sSQLString = "SELECT COUNT(reqID) FROM transferRequests";
+			String sSQLString = "SELECT COUNT(reqID) FROM transferRequests WHERE (transferRequests.deployed = '" + sDeployed + "')";
 			statement = con.prepareStatement(sSQLString);
 			result = statement.executeQuery();
 			
@@ -86,12 +127,18 @@ public class DataManager {
 		
 		return iTotalRows;
 	}
-
+	
+	
+	public static int getNumberRowFiltered(String sSearchString)
+	{
+		return getNumberRowFiltered(sSearchString, "N");
+	}
+	
 	/**
-	 * Restituisce il numero di record coinvolti nella ricerca di una parola nel campo progetto e sottoProggetto della tabella applications
+	 * Restituisce il numero di record coinvolti nella ricerca di una parola nel campo progetto e sottoProgetto della tabella applications
 	 * @return
 	 */
-	public static int getNumberRowFiltered(String sSearchString)
+	public static int getNumberRowFiltered(String sSearchString, String sDeployed)
 	{
 		Connection con = null;
 		DataSource ds = null;
@@ -122,6 +169,7 @@ public class DataManager {
 			" (sendedWith.ext_mailID = mailItems.mailID) AND " +
 			" (containsAttachments.ext_mailID = mailItems.mailID) AND " +
 			"(containsAttachments.ext_attachID = attachments.attachID) AND " +
+			" (transferRequests.deployed = '" + sDeployed + "') AND " +
 			" (applications.applID = concernReq.ext_applID) "+
 			sSearch_SQL;
 			
@@ -380,7 +428,9 @@ public class DataManager {
 				req.setDeployed(result.getString("deployed"));
 				req.setNote(result.getString("note"));
 				Ambient oAmb =DataManager.getAmbientDetail(result.getString("ambientID"));
+				Application oAppl = DataManager.getApplicationDetail(result.getInt("applID"));
 				req.setAmbient(oAmb);
+				req.setApplication(oAppl);
 			}
 			
 		} catch (SQLException e) {
@@ -415,15 +465,16 @@ public class DataManager {
 	         System.out.println("Message Sent");
 
 	     }
-	 catch (NamingException e) 
+	     catch (NamingException e) 
 	     {
 	         e.printStackTrace();
-
+	
 	     }
-	 catch (MessagingException e)
+	     catch (MessagingException e)
 	     {
 	         e.printStackTrace();
 	     }
+	     
 	     System.out.println("Exiting Mail procedure");
 	}
 	
@@ -441,12 +492,13 @@ public class DataManager {
 		Application appl = null;
 		ds = DataManager.getDataSource();
 		
-		try {
+		try
+		{
 			con = ds.getConnection();
 			
 			String sSQLString = 
-			" SELECT  appl.applID, appl.WAS61COMPATIBLE, appl.progetto, appl.sottoprogetto, appl.CODAREAAPPL, appl.CODAPPL, appl.CODAREAFUNZ " +
-			" FROM application appl " +
+			" SELECT  appl.applID, appl.was61compatible, appl.progetto, appl.sottoprogetto, appl.codareaappl, appl.codappl, appl.codareafunz " +
+			" FROM applications appl " +
 			" WHERE (appl.applID = " + iID + ")";
 			
 			statement = con.prepareStatement(sSQLString);
@@ -457,13 +509,14 @@ public class DataManager {
 				appl = new Application();
 				appl.setProject(result.getString("progetto"));
 				appl.setSubProject(result.getString("sottoprogetto"));
-				appl.setJVM5Compatible(result.getString("WAS61COMPATIBLE"));
+				appl.setJVM5Compatible(result.getString("was61compatible"));
 				appl.setApplicationAreaCode(result.getString("codareaappl"));
 				appl.setApplicationCode(result.getString("codappl"));
-				appl.setFunctionalAreaCode(result.getString("codareafunc"));
-			}
-			
+				appl.setFunctionalAreaCode(result.getString("codareafunz"));
+			}			
 		} catch (SQLException e) {
+			
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		

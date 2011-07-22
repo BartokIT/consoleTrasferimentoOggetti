@@ -199,6 +199,38 @@ table.no-border, table.no-border td
 	border: 0px;
 }
 
+
+/* ***** Sezione per il dettaglio della richiesta di trasferimento *****/
+#container_mail_detail_requests
+{
+	width: 950px;
+	padding:0;
+	margin:auto;	
+}
+
+#container_mail_detail_requests #head
+{
+	padding:0;
+	margin-bottom: 10px;	
+}
+
+#container_mail_detail_requests #head h2
+{
+	padding-left: 10px;
+	margin:0;
+}
+
+#container_mail_detail_requests #head em
+{
+	padding-left: 10px;
+	font-size: 10px;
+	margin:0;
+}
+
+#command_panel 
+{
+
+}
  /*
 #scrollbar1 { height:100%; width: 100%; clear: both; margin:0 0 10px; }
 #scrollbar1 .scrollbar { width: 100%;}

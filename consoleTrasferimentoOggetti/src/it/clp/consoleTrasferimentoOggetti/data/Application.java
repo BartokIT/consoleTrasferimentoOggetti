@@ -102,6 +102,14 @@ public class Application {
 		return this.bJVM5;
 	}
 	
+	public String getJVM5CompatibleString()
+	{
+		if (this.bJVM5)
+			return "Si";
+		else
+			return "No";
+	}
+	
 	/**
 	 * Imposta l'identificativo dell'applicazione
 	 * @param sAC

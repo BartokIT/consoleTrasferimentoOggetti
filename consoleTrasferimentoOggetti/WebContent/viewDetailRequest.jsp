@@ -45,15 +45,18 @@
 			<a class="mail_link" href="DownloadEmailContent?mailID=<jsp:getProperty name="requestObject" property="mailID" />"><img src="style/images/mail_icon_16x16.png"/> E-mail</a><br/>
 			<a class="module_link" href="DownloadTransferObject?fileID=<jsp:getProperty name="requestObject" property="attachID" />"><img src="style/images/excel_icon_16x16.png"/> Modulo </a>
 		</div>
+		<a id="deploy_done" href="AjaxShunt.do?cmd=deploydone&amp;reqID=<jsp:getProperty name="requestObject" property="requestID" />">Conferma esecuzione deploy</a>
 	</div>
 <div id="tabs">
 <ul>
 	<li><a href="#tabs-general">Generali</a></li>
 	<li><a href="#tabs-2">Datasource</a></li>
 </ul>
-<div id="tabs-general">Progetto: <jsp:getProperty name="requestObject" property="projectName" /> <br />
-Sottoprogetto: <jsp:getProperty name="requestObject"
-	property="subProjectName" /> <br />
+<div id="tabs-general">
+<h3>Applicazione</h3>
+Progetto: <%= requestObject.getApplication().getProject() %><br />
+Sottoprogetto: <%= requestObject.getApplication().getSubProject() %> <br />
+Compatibile JVM 1.5: <%= requestObject.getApplication().getJVM5CompatibleString() %><br/>
 <hr />
 <h3>Info</h3>
 <jsp:getProperty property="note" name="requestObject"/>
@@ -76,17 +79,14 @@ Tipologia trasferimento: <% if (requestObject.getPrimaSuccessiva().compareTo("P"
 				if (bErrorDeploy == false)
 				{ %>
 					<div id="form_container" class="form_update">
-					<form action="#" method="post">
-					<fieldset><input id="requestID" type="hidden"
-						name="requestID"
-						value="<jsp:getProperty name="requestObject" property="requestID" />" />
-					<input id="tagCVS" type="hidden" name="tagCVS"
-						value="<jsp:getProperty name="requestObject" property="tagCVS" />" /> <input
-						id="moduleCVS" type="hidden" name="moduleCVS"
-						value="<jsp:getProperty name="requestObject" property="moduleCVS" />" />
-					<input id="run_update" class="submit" type="submit"
-						name="action_update_appl" value="Inizia procedura aggiornamento" /></fieldset>
-					</form>
+						<form action="#" method="post">
+							<fieldset>
+								<input id="requestID" type="hidden"	name="requestID" value="<jsp:getProperty name="requestObject" property="requestID" />" />
+								<input id="tagCVS" type="hidden" name="tagCVS" value="<jsp:getProperty name="requestObject" property="tagCVS" />" />
+								<input id="moduleCVS" type="hidden" name="moduleCVS" value="<jsp:getProperty name="requestObject" property="moduleCVS" />" />
+								<input id="run_update" class="submit" type="submit" name="action_update_appl" value="Inizia procedura aggiornamento" />
+							</fieldset>
+						</form>
 					</div>
 				<%} %>
 </div>

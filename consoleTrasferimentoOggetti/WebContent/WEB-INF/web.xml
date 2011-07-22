@@ -58,6 +58,14 @@
 		<servlet-name>GetProcessedAjax</servlet-name>
 		<servlet-class>it.clp.consoleTrasferimentoOggetti.GetProcessedAjax</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>
+		AjaxShunt</display-name>
+		<servlet-name>AjaxShunt</servlet-name>
+		<servlet-class>it.clp.consoleTrasferimentoOggetti.AjaxShunt</servlet-class>
+	</servlet>
 		
 	<servlet-mapping>
 		<servlet-name>DownloadTransferObject</servlet-name>
@@ -89,6 +97,11 @@
 	<servlet-mapping>
 		<servlet-name>GetProcessedAjax</servlet-name>
 		<url-pattern>GetProcessedRequest.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AjaxShunt</servlet-name>
+		<url-pattern>
+		AjaxShunt.do</url-pattern>
 	</servlet-mapping>		
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
