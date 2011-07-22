@@ -14,14 +14,6 @@
 		<description>
 		</description>
 		<display-name>
-		GetRequests</display-name>
-		<servlet-name>GetRequests</servlet-name>
-		<servlet-class>it.clp.consoleTrasferimentoOggetti.GetRequests</servlet-class>
-	</servlet>
-	<servlet>
-		<description>
-		</description>
-		<display-name>
 		DownloadTransferObject</display-name>
 		<servlet-name>DownloadTransferObject</servlet-name>
 		<servlet-class>it.clp.consoleTrasferimentoOggetti.DownloadTransferObject</servlet-class>
@@ -58,11 +50,15 @@
 		<servlet-name>RunUpdateAppl</servlet-name>
 		<servlet-class>it.clp.consoleTrasferimentoOggetti.RunUpdateAppl</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>
+		GetProcessedAjax</display-name>
+		<servlet-name>GetProcessedAjax</servlet-name>
+		<servlet-class>it.clp.consoleTrasferimentoOggetti.GetProcessedAjax</servlet-class>
+	</servlet>
 		
-	<servlet-mapping>
-		<servlet-name>GetRequests</servlet-name>
-		<url-pattern>/GetRequests</url-pattern>
-	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>DownloadTransferObject</servlet-name>
 		<url-pattern>
@@ -89,6 +85,10 @@
 	<servlet-mapping>
 		<servlet-name>RunUpdateAppl</servlet-name>
 		<url-pattern>RunUpdate.do</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GetProcessedAjax</servlet-name>
+		<url-pattern>GetProcessedRequest.do</url-pattern>
 	</servlet-mapping>		
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>

@@ -29,8 +29,7 @@ import ch.ethz.ssh2.StreamGobbler;
  */
 public class RunUpdateAppl extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private int newFieldName1;
-       
+	       
     /**
      * @see HttpServlet#HttpServlet()
      */

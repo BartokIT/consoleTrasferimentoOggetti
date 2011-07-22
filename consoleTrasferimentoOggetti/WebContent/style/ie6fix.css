@@ -1,0 +1,11 @@
+#mainheader
+{
+	margin-bottom: 3em;
+}
+
+#logobox a span
+{
+	width: 250px;
+	margin:0;
+   background: url("images/logo_was.gif") no-repeat left top 100%;
+}

@@ -15,8 +15,11 @@ public class TransferRequest {
 	private String sTagCVS = null;
 	private String sModuloCVS = null;
 	private Ambient oAmbient = null;
+	private Application oApplication = null;
 	private String mailID = null;
 	private String attachID = null;
+	private String note = null;
+	private boolean deployed = false;
 	
 	public TransferRequest()
 	{ /*Dummy constructor*/	}
@@ -46,6 +49,8 @@ public class TransferRequest {
 		this.oAmbient = req.getAmbient();
 		this.mailID = req.getMailID();
 		this.attachID = req.getAttachID();
+		this.deployed = req.getDeployed();
+		this.note = req.getNote();
 	}
 	
 	public int getRequestID()
@@ -152,6 +157,20 @@ public class TransferRequest {
 			this.sModuloCVS = sModule;
 	}
 	
+	public void setApplication(Application oApplication)
+	{
+		if (oApplication != null)
+			this.oApplication = oApplication;
+	}
+	
+	public Application getApplication()
+	{
+		if ( this.oApplication != null)
+			return this.oApplication;
+		else
+			return null;
+	}
+	
 	public void setAmbient(Ambient oAmbient)
 	{
 		if (oAmbient != null)
@@ -196,4 +215,36 @@ public class TransferRequest {
 			return "";
 	}
 	
+	public boolean getDeployed()
+	{
+		return this.deployed;
+	}
+	
+	public void setDeployed(String deployed)
+	{
+		if (deployed != null)
+		{
+			if (deployed.compareTo("Y") == 0)
+				this.deployed = true;
+		}		
+	}
+	
+	public void setNote(String note)
+	{
+		if (note != null)
+		{
+			note = note.replace("[Sezione generale]:", "<table class=\"no-border\"><tr  style=\"border-bottom:1px dashed #AAA\"><td>Sezione generale:</td><td style=\"font-size:.8em\">");
+			note = note.replace("[Sezione WAS]:", "</td></tr><tr><td>Sezione WAS:</td><td style=\"font-size:.8em\">");
+			note = note + "</tr></td></table>";
+			this.note = note;
+		}
+	}
+	
+	public String getNote()
+	{
+		if (this.note != null)
+			return this.note;
+		else
+			return "";
+	}
 }

@@ -1,6 +1,6 @@
 package it.clp.consoleTrasferimentoOggetti;
 
-
+import it.clp.consoleTrasferimentoOggetti.data.Application;
 import it.clp.consoleTrasferimentoOggetti.data.Ambient;
 import it.clp.consoleTrasferimentoOggetti.data.TransferRequest;
 
@@ -149,6 +149,11 @@ public class DataManager {
 	
 	public static ResultSet getRequestsRow(String sSearchString, String sColonnaOrdinamento, String sTipoOrdinamento, int iStartRow, int iNumberRows)
 	{
+		return getRequestsRow( sSearchString,  sColonnaOrdinamento,  sTipoOrdinamento,  iStartRow, iNumberRows, "N");
+	}
+	
+	public static ResultSet getRequestsRow(String sSearchString, String sColonnaOrdinamento, String sTipoOrdinamento, int iStartRow, int iNumberRows, String sDeployed)
+	{
 		
 		Connection con = null;
 		DataSource ds = null;
@@ -203,7 +208,8 @@ public class DataManager {
 		" (snd.ext_reqID = req.reqID) AND " +
 		" (snd.ext_mailID = mail.mailID) AND " +
 		" (cont.ext_mailID = mail.mailID) AND " +
-		"(cont.ext_attachID = att.attachID) AND " +
+		" (cont.ext_attachID = att.attachID) AND " +
+		" (req.deployed = '" + sDeployed + "') AND " +
 		" (appl.applID = conc.ext_applID) " +
 		sSearch_SQL + 
 		sOrder_SQL + " ) t )" +
@@ -346,7 +352,7 @@ public class DataManager {
 			con = ds.getConnection();
 			
 			String sSQLString = 
-			" SELECT  appl.applID, mail.mailID, req.primaSuccessiva, req.reqDateTime, att.attachID, appl.progetto, appl.sottoProgetto,  req.reqID, req.tagCVS, req.moduloCVS, amb.ambientName, att.attachName, amb.ambientID " +
+			" SELECT  appl.applID, mail.mailID, req.deployed, req.note, req.primaSuccessiva, req.reqDateTime, att.attachID, appl.progetto, appl.sottoProgetto,  req.reqID, req.tagCVS, req.moduloCVS, amb.ambientName, att.attachName, amb.ambientID " +
 			" FROM applications appl, attachments att, containsAttachments cont, mailItems mail, sendedWith snd, ambients amb, concernReq conc, transferRequests req " +
 			" WHERE (amb.ambientID = conc.ext_ambientID) AND" +
 			" (conc.ext_reqID = req.reqID) AND" +
@@ -371,6 +377,8 @@ public class DataManager {
 				req.setPrimaSuccessiva(result.getString("primaSuccessiva"));
 				req.setMailID(result.getString("mailID"));
 				req.setAttachID(result.getString("attachID"));
+				req.setDeployed(result.getString("deployed"));
+				req.setNote(result.getString("note"));
 				Ambient oAmb =DataManager.getAmbientDetail(result.getString("ambientID"));
 				req.setAmbient(oAmb);
 			}
@@ -417,6 +425,46 @@ public class DataManager {
 	         e.printStackTrace();
 	     }
 	     System.out.println("Exiting Mail procedure");
+	}
+	
+	/**
+	 * Restituisce una istanza di Ambient popolata 
+	 * @param sID
+	 * @return
+	 */
+	public static Application getApplicationDetail(int iID)
+	{
+		Connection con = null;
+		DataSource ds = null;
+		PreparedStatement statement= null;
+		ResultSet result = null;
+		Application appl = null;
+		ds = DataManager.getDataSource();
+		
+		try {
+			con = ds.getConnection();
+			
+			String sSQLString = 
+			" SELECT  appl.applID, appl.WAS61COMPATIBLE, appl.progetto, appl.sottoprogetto, appl.CODAREAAPPL, appl.CODAPPL, appl.CODAREAFUNZ" +
+			" FROM application appl " +
+			" WHERE (appl.applID = " + iID + ")";
+			
+			statement = con.prepareStatement(sSQLString);
+			result = statement.executeQuery();
+			
+			if (result.next())
+			{
+				appl = new Application();
+				appl.setProject(result.getString("progetto"));
+				appl.setSubProject(result.getString("sottoprogetto"));
+				appl.setJVM5Compatible(result.getString("WAS61COMPATIBLE"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return appl;		
 	}
 	
 	/**

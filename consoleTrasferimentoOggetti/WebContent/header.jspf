@@ -1,0 +1,21 @@
+<div id="mainheader" class="ui-widget-header .ui-corner-tr .ui-corner-tl">
+	<h1 id="logobox"><a href="">Gruppo Gestione Application Server<span></span></a></h1>
+	<!-- Menu Bar -->
+	<div id="menubar">
+		<div class="dialog">
+		 <div class="content">
+		  <div class="t"></div>
+		  <div class="menu">
+			  <ul>
+			  	<li><a class="home" href="">Home</a></li>
+			  	<li><a href="viewTransferRequests.jsp">Da evadere</a></li>
+			  	<li><a href="viewProcessedRequests.jsp">Evase</a></li>
+			  	<li><a href="">Applicazioni</a></li>
+			  </ul>
+			  <br style="clear:left;margin:0;paddin:0;"/>
+		  </div>
+		  <div class="r"></div>
+		 </div>
+		</div>
+	</div>
+</div>

@@ -60,4 +60,14 @@ $(document).ready(function() {
 		});
 
 	});
+	$('.menu a').css( {backgroundPosition: "0 0"} );
+	$('.menu a').mouseover(function(){
+		$(this).stop().animate({backgroundPosition:"(-160px 0)"}, {duration:500})
+	});
+	
+	$('.menu a').mouseout(function(){
+		$(this).stop().animate({backgroundPosition:"(0px 0)"}, {duration:200, complete:function(){
+			$(this).css({backgroundPosition: "0 0"})
+		}})
+	});
 });

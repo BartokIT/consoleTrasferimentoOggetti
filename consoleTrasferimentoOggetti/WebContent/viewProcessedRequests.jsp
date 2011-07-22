@@ -20,29 +20,27 @@
 	<script type="text/javascript" src="js/jquery-ui-1.8.12.custom.min.js"></script>
 	<script type="text/javascript" src="js/ColVis.min.js"></script>
 	<script type="text/javascript" src="js/jquery.bgpos.js"></script>
-	<script type="text/javascript" src="js/ViewTransferRequests.js"></script>
+	<script type="text/javascript" src="js/ViewProcessedRequests.js"></script>
 </head>
 <body>
 <jsp:include page="header.jspf" flush="false"></jsp:include>
 <form>
-<div id="container_main_trasf_table">
-<table id="main_trasf_table" style="width: 950px">
-	<thead>
-		<tr>
-			<th><input type="checkbox" /></th>
-			<th>Ricevuto</th>
-			<th>Ambiente</th>
-			<th>Prima?</th>
-			<th>Applicazione</th>
-			<th>Email</th>
-			<th>Modello</th>
-			<th>Deploy</th>
-		</tr>
-	</thead>
-	<tbody>
-	</tbody>
-</table>
-</div>
-</form>
+	<div id="container_main_trasf_table">
+		<table id="main_trasf_table" style="width: 950px">
+			<thead>
+				<tr>
+					<th><input type="checkbox" /></th>
+					<th>Ricevuto</th>
+					<th>Ambiente</th>
+					<th>Prima?</th>
+					<th>Applicazione</th>
+					<th>Dettagli</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</form>	
 </body>
 </html>

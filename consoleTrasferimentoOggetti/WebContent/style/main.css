@@ -5,6 +5,48 @@ body {
 	color: #333;
 	background-color: #fff;
 }
+/* ******* Heading *****/
+
+#mainheader
+{
+	margin: auto;
+	width: 100%;
+	display: block;
+	height: 100px;
+	margin-bottom: 3em;
+	
+}
+
+#logobox
+{
+	position: relative;
+	left: 10%;
+	width: 250px;
+	height: 60px;	
+}
+
+#logobox a
+{
+	position:relative;
+	display:block;
+	width: 250px;
+	height: 60px;
+	visibility: hidden;
+	
+}
+
+#logobox a span
+{
+   display:block;
+   position:absolute;
+   left:0;
+   top:0;
+   width:100%;
+   height:100%;
+   visibility: visible;
+   background: url("images/logo_was.png") no-repeat left top;
+   z-index:100; /* Places <span> on top of <a> text */
+}
 
 .center
 {
@@ -25,6 +67,16 @@ h1.open_mail
         text-align:center;
 		
 }
+
+h1.detail_request
+{
+        /*width: 16px; height: 16px;*/
+        margin:0;padding:0;
+        background: url("images/detail_icon.gif") no-repeat top;
+        text-indent: -9999px;
+		
+}
+
 
 h1.deploy_request
 {
@@ -136,6 +188,17 @@ a.view_application:hover
 	text-decoration: none;
 	font-size: .9em;
 }
+
+table.no-border
+{
+	border-collapse: collapse;
+}
+
+table.no-border, table.no-border td
+{
+	border: 0px;
+}
+
  /*
 #scrollbar1 { height:100%; width: 100%; clear: both; margin:0 0 10px; }
 #scrollbar1 .scrollbar { width: 100%;}

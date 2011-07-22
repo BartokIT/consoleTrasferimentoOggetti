@@ -1,0 +1,110 @@
+/* 
+  -- Even more rounded corners with CSS: Base stylesheet --
+*/
+
+#menubar
+{
+	text-align:center;
+	width:950px;
+	margin:auto;
+	top:-10px;
+}
+
+.dialog {
+ position:relative;
+ margin:0px auto;
+ min-width:8em;
+ max-width:930px; /* based on image dimensions - not quite consistent with drip styles yet */
+ color:#fff;
+ z-index:1;
+ margin-left:12px; /* default, width of left corner */
+ margin-bottom:0.5em; /* spacing under dialog */
+ text-align: left;
+}
+
+.dialog .content,
+.dialog .t{
+ background:transparent url("images/hm_repeat.png") repeat-x top right;
+ _background-image:url("images/hm_repeat.png");
+}
+
+.dialog .content {
+ position:relative;
+ zoom:1;
+ _overflow-y:hidden;
+ padding:0px 12px 0px 0px;
+}
+
+.dialog .t {
+ /* top+left vertical slice */
+ position:absolute;
+ left:0px;
+ top:0px;
+ width:12px; /* top slice width */
+ margin-left:-12px;
+ height:100%;
+ _height:1600px; /* arbitrary long height, IE 6 */
+ background-position:top left;
+ background:transparent url("images/hm_left.gif") no-repeat top right;
+}
+
+.dialog .r {
+ /* top+left vertical slice */
+ position:absolute;
+ right:0px;
+ top:0px;
+ width:12px; /* top slice width */
+ margin-right:-12px;
+ height:100%;
+ _height:1600px; /* arbitrary long height, IE 6 */
+ background-position:top left;
+ background:transparent url("images/hm_right.gif") no-repeat top left;
+}
+
+.dialog div.menu {
+ margin:0px; /* margins will blow out backgrounds, leaving whitespace. */
+ padding:0.5em 0px 0.5em 20px;
+}
+
+.menu ul
+{
+	
+	margin:0;
+	padding:0;
+}
+
+.menu li {
+	background-position:-150px 0;
+	list-style: none;
+	margin:0;
+	padding:0;
+	height: 100%;
+	padding-left:10px;
+	float:left;	
+	background: transparent;
+	text-align: center;	
+}
+
+.menu li a
+{
+	height: 100%;
+	width: 100px;
+	display:block;
+	text-decoration: none;
+	font-size:.9em;
+	background: url("images/menubar_bg.png") no-repeat 0 0;
+	background-position:0 0;
+	
+}
+.menu li a.home
+{
+	background: url("images/home_button_bar.png") no-repeat left center;
+	background-position:0px 0;
+}
+
+.menu li a:hover
+{
+	text-decoration: none;
+	font-size:.9em; 
+	background-position:-160px 0;
+}

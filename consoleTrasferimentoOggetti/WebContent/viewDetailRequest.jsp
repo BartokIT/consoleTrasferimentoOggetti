@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="style/demo_table_jui.css" type="text/css" />
 <link rel="stylesheet" href="style/main.css" type="text/css" />
 <link rel="stylesheet" href="style/maintable.css" type="text/css" />
+<link rel="stylesheet" href="style/menubar.css" type="text/css" />
 <link rel="stylesheet" href="style/jquery.jscrollpane.css" type="text/css" />
 <meta http-equiv="Content-Type"
 	content="application/xhtml+xml; charset=UTF-8" />
@@ -21,12 +22,14 @@
 <script type="text/javascript"
 	src="js/jquery.dataTables.sorting.plugin.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.8.12.custom.min.js"></script>
-<script type="text/javascript" src="js/viewDetailRequest.js"></script>
 <script type="text/javascript" src="js/ColVis.min.js"></script>
 <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="js/jquery.bgpos.js"></script>
+<script type="text/javascript" src="js/viewDetailRequest.js"></script>
 </head>
 <body>
+<jsp:include page="header.jspf" flush="false"></jsp:include>
 <div id="container_mail_detail_requests">
 	<div id="head"
 		class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix info_appl_head">
@@ -51,6 +54,9 @@
 <div id="tabs-general">Progetto: <jsp:getProperty name="requestObject" property="projectName" /> <br />
 Sottoprogetto: <jsp:getProperty name="requestObject"
 	property="subProjectName" /> <br />
+<hr />
+<h3>Info</h3>
+<jsp:getProperty property="note" name="requestObject"/>
 <hr />
 <h3>CVS</h3>
 Tag: <% if (requestObject.getTagCVS().contains(" "))

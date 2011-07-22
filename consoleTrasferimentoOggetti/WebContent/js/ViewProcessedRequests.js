@@ -1,22 +1,16 @@
 $(document).ready(function() { 	
 	oTable = $('#main_trasf_table').dataTable({
-		"sDom": '<"H"lCfr>t<"F"ip>',
+		"sDom": '<"H"lfr>t<"F"ip>',
 		"bServerSide": true,
-		"sAjaxSource": "GetTransferRequest.do",
+		"sAjaxSource": "GetProcessedRequest.do",
 		"bJQueryUI": true,
 		"bProcessing": true,
-		"aoColumnDefs": [{"bSortable": false, "aTargets": [0,5,6,7]},
-						{"bSearchable":false, "aTargets": [0,5,6,7]},
-						{"sClass": "center", "aTargets": [0,5,6,7]},
-						{"bVisible": false, "aTargets": [5]},
+		"aoColumnDefs": [{"bSortable": false, "aTargets": [0,5]},
+						{"bSearchable":false, "aTargets": [0,5]},
+						{"sClass": "center", "aTargets": [0,5]},
 						{"sType": "date-euro", "aTargets": [1]}
 						],		
-		"oColVis": {
-			"buttonText": "&nbsp;",
-			"bRestore": true,
-			"aiExclude": [ 0],
-			"sAlign": "left"
-		},
+	
 		"sPaginationType": "full_numbers",
 		"oLanguage": {
 			"sProcessing": "Loading...<img  src='style/images/blue_loader.gif'/>"
