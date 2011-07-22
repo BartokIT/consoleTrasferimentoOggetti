@@ -6,6 +6,10 @@ public class Application {
 	private String sProject = null;
 	private String sSubProject = null;
 	private boolean bJVM5 = false;
+	private String sFunctionalAreaCode = null;
+	private String sApplicationAreaCode = null;
+	private String sApplicationCode = null;
+	
 	public Application()
 	{ /*Dummy constructor*/}
 	
@@ -20,6 +24,9 @@ public class Application {
 		this.setProject(appl.getProject());
 		this.setSubProject(appl.getSubProject());
 		this.setJVM5Compatible(appl.getJVM5Compatible());
+		this.setApplicationAreaCode(appl.getApplicationAreaCode());
+		this.setApplicationCode(appl.getApplicationCode());
+		this.setFunctionalAreaCode(appl.getFunctionalAreaCode());
 	}
 	
 	/**
@@ -94,4 +101,74 @@ public class Application {
 	{
 		return this.bJVM5;
 	}
+	
+	/**
+	 * Imposta l'identificativo dell'applicazione
+	 * @param sAC
+	 */
+	public void setApplicationCode(String sAC)
+	{
+		if ( sAC != null)
+				this.sApplicationCode = sAC;
+	}
+	
+	/**
+	 * Restituisce l'identificativo dell'applicazione
+	 * @return
+	 */
+	public String getApplicationCode()
+	{
+		if (this.sApplicationCode != null)
+			return this.sApplicationCode;
+		else
+			return "";
+	}
+	
+	/**
+	 * Imposta il codice identificativo dell'area funzionale
+	 * @param sFAC
+	 */
+	public void setFunctionalAreaCode(String sFAC)
+	{
+		if (sFAC != null)
+		{
+			this.sFunctionalAreaCode = sFAC;
+		}
+	}
+	
+	/**
+	 * Imposta il codice identificativo dell'area applicativa
+	 * @param sAAC
+	 */
+	public void setApplicationAreaCode(String sAAC)
+	{
+		if (sAAC != null)
+		{
+			this.sApplicationAreaCode = sAAC;
+		}
+	}
+	/**
+	 * Restituisce il codice identificativo dell'area funzionale
+	 * @return
+	 */
+	public String getFunctionalAreaCode()
+	{
+		if (this.sFunctionalAreaCode != null)
+				return this.sFunctionalAreaCode;
+		else
+				return "";
+	}
+	
+	/**
+	 * Restuituisce il codice identificativo dell'area applicativa
+	 * @return
+	 */
+	public String getApplicationAreaCode()
+	{
+		if ( this.sApplicationAreaCode != null)
+			return this.sApplicationAreaCode;
+		else
+			return "";
+	}
+		
 }

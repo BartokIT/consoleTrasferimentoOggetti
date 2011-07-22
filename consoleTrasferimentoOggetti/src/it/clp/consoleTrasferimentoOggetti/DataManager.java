@@ -445,7 +445,7 @@ public class DataManager {
 			con = ds.getConnection();
 			
 			String sSQLString = 
-			" SELECT  appl.applID, appl.WAS61COMPATIBLE, appl.progetto, appl.sottoprogetto, appl.CODAREAAPPL, appl.CODAPPL, appl.CODAREAFUNZ" +
+			" SELECT  appl.applID, appl.WAS61COMPATIBLE, appl.progetto, appl.sottoprogetto, appl.CODAREAAPPL, appl.CODAPPL, appl.CODAREAFUNZ " +
 			" FROM application appl " +
 			" WHERE (appl.applID = " + iID + ")";
 			
@@ -458,6 +458,9 @@ public class DataManager {
 				appl.setProject(result.getString("progetto"));
 				appl.setSubProject(result.getString("sottoprogetto"));
 				appl.setJVM5Compatible(result.getString("WAS61COMPATIBLE"));
+				appl.setApplicationAreaCode(result.getString("codareaappl"));
+				appl.setApplicationCode(result.getString("codappl"));
+				appl.setFunctionalAreaCode(result.getString("codareafunc"));
 			}
 			
 		} catch (SQLException e) {
